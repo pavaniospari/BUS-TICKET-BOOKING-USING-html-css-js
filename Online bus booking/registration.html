@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Registration Page</title>
+<link rel="stylesheet" href="registration1.css">
+</head>
+<body>
+<h1 align="center">APSRTC</h1>
+<nav><img src="/home/apiiit-rkv/Desktop/project/ticket.jpeg" class="logo">
+</nav>
+<div class="imp"><div class="register"><h2>Register here</h2>
+<form id="form" method="POST" action="home.html">
+       <label>Name:<br><input type="text" name="name" id="name"></label><br><br>
+       <label>Phone:<br><input type="tel" name="tel" id="tel"></label><br><br>
+      <label>Email:<br><input type="email" name="mail" id="mail"></label><br><br>
+      <label>Password:<br><input type="password" name="password" id="password"></label><br><br>
+      <label>Confirm-Password:<br><input type="password" name="cpwd" id="cpwd"></label><br><br>
+      <label><input type="checkbox" name="agree" id="agree">Agreeing Terms and Conditions</label><br><br>
+	<span style="color:red" id="error"></span><br><br>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button><br>
+    </form>
+    <script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        validate();
+      });
+
+      function validate() {
+        let name = document.getElementById("name").value.trim();
+        let phone = document.getElementById("tel").value.trim();
+        let mail= document.getElementById("mail").value.trim();
+        let pwd = document.getElementById("password").value.trim();
+        let cpwd = document.getElementById("cpwd").value.trim();
+        let is_checked = document.getElementById("agree").checked;
+        let is_name_valid = true;
+        let is_pwd_valid = true;
+        let is_phone_valid = true;
+        let is_mail_valid = true;
+        if (name == "") {
+          document.getElementById("error").innerText ="Name cannot be empty";
+            is_name_valid = false;
+            return;
+        }
+        if (name.match(/[0-9]/)) {
+          document.getElementById("error").innerText ="Name cannot contain Digits";
+          is_name_valid = false;
+          return;
+        }
+        if (name.length < 3) {
+          document.getElementById("error").innerText ="Name should be atleast 3 Characters";
+          is_name_valid = false;
+        return;
+        }
+        if (phone == "") {
+          document.getElementById("error").innerText ="Phone cannot be empty";
+          is_phone_valid = false;
+          return;
+        }
+        if (phone.length != 10) {
+          document.getElementById("error").innerText ="Phone number should be 10 Characters";
+          is_phone_valid = false;
+        return;
+        }
+        if (phone.match(/[a-zA-z._$@-]/)) {
+          document.getElementById("error").innerText ="Phone number cannot contain Alphabets and Special characters";
+          is_phone_valid = false;
+          return;
+         }
+	 if (mail == "") {
+          document.getElementById("error").innerText ="Mail cannot be empty";
+          is_mail_valid = false;
+          return;
+         }
+           if(! mail.match(/^([a-zA-Z0-9._-]+)@([a-zA-Z0-9]+)\.([a-z]{2,6})*$/))
+           {
+        	  document.getElementById("error").innerText ="Enter valid email id";	
+        	  is_mail_valid=false;
+        	  return;
+        	}
+        if (pwd == "") {
+          document.getElementById("error").innerText ="Password cannot be empty";
+          is_pwd_valid = false;
+          return;
+        }
+        if (pwd.length < 8) {
+          document.getElementById("error").innerText ="Password should be atleast 8 Characters";
+          is_pwd_valid = false;
+          return;
+        }
+        if (! pwd.match(/[a-z]/)) {
+          document.getElementById("error").innerText ="Password must contain one Lowercase letter";
+          is_pwd_valid = false;
+          return;
+        }
+        if (!pwd.match(/[A-Z]/)) {
+          document.getElementById("error").innerText ="Password must contain one Uppercase letter";
+          is_pwd_valid = false;
+          return;
+        }
+        if (!pwd.match(/[@#&-]/)) {
+          document.getElementById("error").innerText ="Password must contain one Special Character";
+          is_pwd_valid = false;
+          return;
+        }
+        if (!pwd.match(/[0-9]/)) {
+          document.getElementById("error").innerText ="Password must contain one digit Character";
+          is_pwd_valid = false;
+          return;
+        }
+        if (pwd != cpwd) {
+          document.getElementById("error").innerText ="Password confirmation not matched";
+          is_pwd_valid = false;
+          return;
+        }
+        if (!is_checked) {
+          document.getElementById("error").innerText ="Please Agree Terms and Conditions to continue";
+          return;
+        }
+        if (is_name_valid && is_pwd_valid && is_checked&&is_phone_valid&&is_mail_valid) {
+          form.submit();
+        }
+      }
+    </script>
+</body>
+</html>

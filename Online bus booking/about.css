@@ -1,0 +1,87 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family: Arial;
+	background:url("/home/apiiit-rkv/Desktop/project/empty.jpeg");
+	height: 100vh;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+.logo img{
+	width:100px;
+	float: left;
+	height: auto; 
+}
+
+.cards{
+	width: 20%;
+	background-color: gray;
+	display: inline-block;
+	border-radius: 5px;
+	margin: 40px;
+	box-shadow: 2px 2px 10px balck;
+}
+.image img{
+	width: 100%;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.title{
+	text-align: center;
+	padding: 5px;
+}
+.des{
+	text-align: center;
+	padding: 4px;
+}
+button{
+	margin-top: 30px;
+	margin:bottom: 30px;
+	background-color: white;
+	border: 1PX solid black;
+	padding: 5px;
+	border-radius: 5px;
+}
+button:hover{
+	background-color: black;
+	color: white;
+	trasition: .5s;
+	cursor: pointer;
+}
+button li a:hover{
+	background: white;
+	color: #333;
+	
+}
+
+
+	
+.back a{
+	width:100px;
+	float: right;
+	height: auto; 
+	background-color: #000000;
+	border: 1px solid #000000;
+	color: white;
+	padding: 5px 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 18px;
+	margin-top: 18px;
+	margin-right:10px;
+
+}
+footer{
+	background: #212226;
+	padding: 20px;
+}
+footer p{
+	text-align: center;
+	color:#fff;
+}	
+	
+
